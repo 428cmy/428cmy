@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../gg/css/snackbar.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<button onclick="myFunction()">Snackbar Test</button>
+
+<div id="snackbar">잘되라아아아아</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+
+</body>
+</html>
