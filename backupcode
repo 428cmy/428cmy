@@ -1,0 +1,41 @@
+<?php
+  session_start();
+
+  $dbconfig = new mysqli("localhost","lucid1616","lucid0016","lucid1616");
+  $dbconfig->set_charset("utf8");
+
+  function mq($sql){
+    global $dbconfig;
+    return $dbconfig->query($sql);
+  }
+
+?>
+
+
+
+<meta charset="utf-8" />
+<?php	
+	include "dbconfig.php";
+
+	//POST로 받아온 비밀번호가 비었다면 알림창을 띄우고 전 페이지로 돌아갑니다.
+	if($_POST["display"] == ""){
+		echo '<script> alert("비밀번호를 입력해야한다."); history.back(); </script>';
+	}else{
+
+	//password변수에 POST로 받아온 값을 저장하고 sql문으로 POST로 받아온 아이디값을 찾습니다.
+	$password = $_POST['display'];
+	$sql = mq("select * from bed_luck where password='".$_POST['display']."'");
+	$bed_luck = $sql->fetch_array();
+	$hash_pw = $bed_luck['display']; //$hash_pw에 POSt로 받아온 아이디열의 비밀번호를 저장합니다. 
+
+	if(password_verify($password, $hash_pw)) //만약 password변수와 hash_pw변수가 같다면 세션값을 저장하고 알림창을 띄운후 index.php파일로 넘어갑니다.
+	{
+		$_SESSION['password'] = $bed_luck["display"];
+
+		echo "<script>alert('잠금장치가 풀렸다.'); location.href='bedroom1.html';</script>";
+		
+	}else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다
+		echo "<script>alert('다시 생각해보자.'); history.back();</script>";
+	}
+}
+?>
