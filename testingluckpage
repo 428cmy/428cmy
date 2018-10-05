@@ -1,0 +1,19 @@
+		javascript testing code...
+    
+    <script>
+			function cal(num){
+				myform.display.value += num;
+				console.log(num);
+			}	
+
+			function answer(){
+				try{
+				myform.display.value = eval(document.myform.display.value == "3101");
+				}catch(e){alert('blabla')}
+			}
+			
+
+			function clearcal(){
+				myform.display.value = "";
+			}
+		</script>
