@@ -1,0 +1,65 @@
+  <body>
+            <table cellspacing="20px">
+                <td id="display" colspan="3" style='word-break:break-all'>0</td> <!-- 출력창  -->
+                <tr>
+                    <td class="button" onclick="inNum('Back')">←</td>
+                    <td class="button" onclick="inNum('C')">CE</td>
+                    <td class="button" id="Result" onclick="inNum('Result')">OK</td>
+                </tr>
+                
+                <tr>
+                    <td class="button" onclick="inNum('7')">7</td>
+                    <td class="button" onclick="inNum('8')">8</td>
+                    <td class="button" onclick="inNum('9')">9</td>
+                </tr>
+                <tr>
+                    <td class="button" onclick="inNum('4')">4</td>
+                    <td class="button" onclick="inNum('5')">5</td>
+                    <td class="button" onclick="inNum('6')">6</td>
+                </tr>
+                <tr>
+                    <td class="button" onclick="inNum('1')">1</td>
+                    <td class="button" onclick="inNum('2')">2</td>
+                    <td class="button" onclick="inNum('3')">3</td>
+                    
+                </tr>
+                <tr>
+                    <td class="button" onclick="inNum('*')">*</td>
+                    <td class="button" colspan="2" onclick="inNum(0)">0</td>
+                </tr>
+            </table>
+			
+			<hr>
+			<p id="unluck"></p>
+			
+        </body>
+        <script>
+            
+            var display = document.getElementById("display");
+			
+			function Result(){
+				var pwd;
+				
+				if (display.innerHTML == 3101) {
+				pwd = "정답!";
+				
+			} else {
+				pwd = "삡";
+			}
+				document.getElementById("unluck").innerHTML = pwd;
+			}
+            
+            function inNum(num){
+                if(display.innerHTML == "0") display.innerHTML = "";
+                switch(num){
+                    case 'C':display.innerHTML = 0; break;
+                    case 'Result':Result(); break;
+                    case 'Back':check = ""; for(let i = 0; i < display.innerHTML.length-1; i++)
+							check += display.innerHTML.split("")[i];
+							display.innerHTML = check; if(display.innerHTML.length == 0)
+							display.innerHTML = 0; break;
+                    default: display.innerHTML += num;s
+                }
+            }
+
+        </script>
