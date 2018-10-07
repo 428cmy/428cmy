@@ -1,0 +1,41 @@
+/* 스마트폰 가로+세로 */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+}
+
+ /* 스마트폰 가로 */
+@media only screen and (min-width : 321px) {
+}
+
+ /* 스마트폰 세로 */
+@media only screen and (max-width : 320px) {
+}
+
+/* iPhone4와 같은 높은 크기 세로 */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),  
+only screen and (min-device-pixel-ratio : 1.5) {  
+}
+
+/* iPhone4와 같은 높은 해상도 가로 */
+@media only screen and (min-width : 640px) {
+}
+
+/* iPad 가로+세로 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+}
+
+/* iPad 가로 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+}
+
+/* iPad 세로 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+}
+
+/* 데스크탑 브라우저 가로 */
+@media only screen and (min-width : 1224px) {
+}
+
+/* 큰 모니터 */
+@media only screen and (min-width : 1824px) {
+}
