@@ -46,16 +46,4 @@
 			}
 		}
 	 
-		<!--스낵바-->
-		function washbtn() {
-			var x = document.getElementById("wash_snackbar");
-				x.className = "show";
-				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-		}
-		
-		function toiletbtn() {
-			var x = document.getElementById("toilet_snackbar");
-				x.className = "show";
-				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-		}
 	</script>
