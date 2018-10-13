@@ -1,0 +1,61 @@
+버튼 클릭시 텍스트 슬라이드가 실행되어야 한다
+다 되는데 넥스트 버튼만 안 먹히네 이유가 뭘까ㅠㅠㅠㅠ
+
+.
+.
+.
+	<a class="next" onclick="plusSlides(1)">❯</a>
+	</div>
+.
+.
+.
+<button id="cen_btn" onclick="cenbtn()"></button>
+			
+	</div>
+	
+	<script type="text/javascript">
+		
+		<!--텍스트 슬라이드-->
+		function cenbtn() {
+
+			var slideIndex = 1;
+			showSlides(slideIndex);
+		
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {slideIndex = slides.length}    
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+		}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+				slides[slideIndex-1].style.display = "block";
+				dots[slideIndex-1].className += " active";
+			}
+		}
+	 
+		<!--스낵바-->
+		function washbtn() {
+			var x = document.getElementById("wash_snackbar");
+				x.className = "show";
+				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+		}
+		
+		function toiletbtn() {
+			var x = document.getElementById("toilet_snackbar");
+				x.className = "show";
+				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+		}
+	</script>
