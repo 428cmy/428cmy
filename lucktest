@@ -1,0 +1,136 @@
+//이걸 이제야 올리네...
+//잠금장치 기능 테스트 파일이다.
+//텍스트 슬라이드 기능 안에 if else를 이용했다.
+//비밀번호가 틀리면 텍스트 슬라이드가 뜨고, 맞으면 링크가 이동된다.
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+		<link href="css/testing.css" rel="stylesheet" type="text/css">
+		<style>
+                table,td{
+                    border:5px solid black;
+					background-color: #7E1900;
+                }
+                td{ 
+                    padding: 5px 5px 5px 10px ;
+                    width: 80px;
+                    height: 60px;
+					font-size: 20px;
+                    text-align: center;
+					background-color: #000;
+					color: #fff;
+                }
+                #display{
+                    text-align: right;
+                    font-size: 30px;
+                }
+                .button:hover{
+                    color: wheat;
+                    font-weight: 600;
+                    cursor:pointer;
+					color: #0100FF
+                }
+				#Result:hover{
+					background: #0100FF !important;
+					color: #fff;
+				}
+        </style>
+    </head>
+		
+        <body>
+            <table cellspacing="20px">
+                <td id="display" colspan="3" style='word-break:break-all'>0</td> <!-- 출력창  -->
+                <tr>
+                    <td class="button" onclick="inNum('Back')">←</td>
+                    <td class="button" onclick="inNum('C')">CE</td>
+                    <td class="button" id="Result" onclick="inNum('Result')">OK</td>
+                </tr>
+                
+                <tr>
+                    <td class="button" onclick="inNum('7')">7</td>
+                    <td class="button" onclick="inNum('8')">8</td>
+                    <td class="button" onclick="inNum('9')">9</td>
+                </tr>
+                <tr>
+                    <td class="button" onclick="inNum('4')">4</td>
+                    <td class="button" onclick="inNum('5')">5</td>
+                    <td class="button" onclick="inNum('6')">6</td>
+                </tr>
+                <tr>
+                    <td class="button" onclick="inNum('1')">1</td>
+                    <td class="button" onclick="inNum('2')">2</td>
+                    <td class="button" onclick="inNum('3')">3</td>
+                    
+                </tr>
+                <tr>
+                    <td class="button" onclick="inNum('*')">*</td>
+                    <td class="button" colspan="2" onclick="inNum(0)">0</td>
+                </tr>
+            </table>
+			
+			
+		<div class="slideshow-container">
+			<div class="mySlides">
+			<button type="button" class="closebtn" onclick="this.parentNode.parentNode.style.display = 'none'">Close</button>
+			  <p class="line anim-typewriter"><b>한숨</b></p>
+			</div>
+		</div>
+
+        </body>
+
+        <script>
+            function inNum(num){
+                if(display.innerHTML == "0") display.innerHTML = "";
+                switch(num){
+                    case 'C':display.innerHTML = 0; break;
+                    case 'Result':Result(); break;
+                    case 'Back':check = ""; for(let i = 0; i < display.innerHTML.length-1; i++)
+							check += display.innerHTML.split("")[i];
+							display.innerHTML = check; if(display.innerHTML.length == 0)
+							display.innerHTML = 0; break;
+                    default: display.innerHTML += num;s
+                }
+            }
+						
+		<!--텍스트 슬라이드-->
+		function Result(){
+			
+			var display = document.getElementById("display");
+
+				if (display.innerHTML == 3101) {
+					location.href ="http://www.google.com";
+				}
+			
+			var slideIndex = 1;
+				showSlides(slideIndex);
+
+			function plusSlides(n) {
+				showSlides(slideIndex += n);
+			}
+
+			function currentSlide(n) {
+				showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+				var i;
+				var slides = document.getElementsByClassName("mySlides");
+				var dots = document.getElementsByClassName("dot");
+				if (n > slides.length) {slideIndex = slides.length}    
+				if (n < 1) {slideIndex = slides.length}
+				for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";  
+			}
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+			}
+					slides[slideIndex-1].style.display = "block";
+					dots[slideIndex-1].className += " active";
+			}
+		
+		}
+        </script>
+    </html> 
